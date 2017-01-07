@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#263238</color>
+    <color name="colorPrimaryDark">#263238</color>
+    <color name="colorAccentLight">@color/light_purple</color>
+    <color name="colorAccentDark">#7851A9</color>
+    <color name="colorControlNormal">#FF78909C</color>
+    <color name="colorControlActivated">#009688</color>
+    <color name="colorSwitchThumbNormal">#FF78909C</color>
+    <color name="white">#ffffff</color>
+    <color name="pink_dark">#F6695F</color>
+    <color name="pink_light">#FF948E</color>
+    <color name="background">#F8F8F8</color>
+    <color name="black">#000000</color>
+    <color name="light_purple">#CAA8FF</color>
+    <color name="blue">#418EFA</color>
+    <color name="gray">#EDEDED</color>
+    <color name="dark_gray">#919191</color>
+    <color name="light_gray">#F0F0F0</color>
+    <color name="bg">#FEFAFC</color>
+    <color name="gray_lighter">#E9E9E9</color>
+    <color name="pink">#F6BBDD</color>
+    <color name="text_hint">#C6E6E6</color>
+    <color name="et_divider_not_focused">#FF6D6D6D</color>
+    <color name="et_colorControlActivated">#fff6695f</color>
+    <color name="et_divider_focused">@color/pink_dark</color>
+    <color name="et_divider_disable">#FFC1C1C1</color>
+    <color name="error">#FF2020</color>
+    <color name="light_blue">#85BCF5</color>
+    <color name="fade_pink">#ca8c93</color>
+    <color name="white_grey">#f1f1f1</color>
+    <color name="global_button_color_yellow">#FDD835</color>
+    <color name="global_button_color_yellow_press">#ACFDD835</color>
+    <color name="global_button_color_gray">#ECEFF1</color>
+    <color name="global_button_color_transtent">#00000000</color>
+    <color name="global_text_color">#333333</color>
+    <color name="global_text_hint_color">#999999</color>
+    <color name="global_home_tab_background_color">#EC212121</color>
+    <color name="global_page_background_color">#ECEFF1</color>
+    <color name="global_page_split_color">#EDEDED</color>
+    <color name="code_text_color">#5677FC</color>
+    <color name="transparent_press">#10000000</color>
+    <color name="home_tab_selected_color">#FDD835</color>
+    <color name="home_tab_color">#FFFFFF</color>
+
+    <color name="item_click_bg_color">#dddddd</color>
+    <color name="transparent">#00000000</color>
+    <!-- toolbar -->
+    <color name="toolbar_text_color">#FFFFFF</color>
+
+    <color name="golden_stars">#FFC619</color>
+    <color name="mine_light_gray">#C7C7C7</color>
+    <color name="mine_task_list_light">#61000000</color>
+    <color name="text_color_light_blue">#5677FC</color>
+
+    <color name="identification_personal">#FFC107</color>
+    <color name="identification_personal_light">#FFCD38</color>
+    <color name="identification_org">#4DB6AC</color>
+    <color name="identification_org_light">#70C4BC</color>
+
+    <!--订单详情 状态颜色-->
+    <color name="order_detail_nopay">#FF7043</color>
+    <color name="order_detail_ing">#5677FC</color>
+    <color name="order_detail_done">#72D572</color>
+    <color name="order_detail_close">#ECEFF1</color>
+
+    <!--工作单详情 状态颜色-->
+    <color name="worklist_detail_nopay">#FF7043</color>
+    <color name="worklist_detail_ing">#5677FC</color>
+    <color name="worklist_detail_done">#72D572</color>
+    <color name="worklist_detail_close">#ECEFF1</color>
+
+    <!--支付页面-->
+    <color name="pay_close_status">#FF7043</color>
+    <color name="pay_light_gray">#F7F7F7</color>
+
+
+    <color name="task_image_border_color">#5677FC</color>
+
+</resources>
