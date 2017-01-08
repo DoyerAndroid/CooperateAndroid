@@ -1,4 +1,4 @@
-package com.compain.libraryshare;
+package com.compain.libraryshare.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.compain.libraryshare.R;
 
 import java.util.ArrayList;
 

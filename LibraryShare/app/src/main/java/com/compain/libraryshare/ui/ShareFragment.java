@@ -1,4 +1,4 @@
-package com.compain.libraryshare;
+package com.compain.libraryshare.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,8 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.compain.libraryshare.R;
+
 /**
- * Created by WangChang on 2016/5/15.
+ * Created by doyer.du on 2016/5/15.
  */
 public class ShareFragment extends Fragment {
 

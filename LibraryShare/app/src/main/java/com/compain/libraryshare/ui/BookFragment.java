@@ -1,4 +1,4 @@
-package com.compain.libraryshare;
+package com.compain.libraryshare.ui;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-/**
- * Created by WangChang on 2016/5/15.
- */
-public class TvFragment extends Fragment {
+import com.compain.libraryshare.R;
 
+/**
+ * Created by doyer.du on 2016/5/15.
+ */
+public class BookFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,10 +28,10 @@ public class TvFragment extends Fragment {
         tv.setText(getArguments().getString("ARGS"));
     }
 
-    public static TvFragment newInstance(String content) {
+    public static BookFragment newInstance(String content) {
         Bundle args = new Bundle();
         args.putString("ARGS", content);
-        TvFragment fragment = new TvFragment();
+        BookFragment fragment = new BookFragment();
         fragment.setArguments(args);
         return fragment;
     }
