@@ -1,4 +1,4 @@
-package com.compain.libraryshare.Util;
+package com.compain.libraryshare.util;
 
 /**
  * Created by jie.du on 17/1/9.

@@ -2,7 +2,7 @@ package com.compain.libraryshare;
 
 import android.app.Application;
 
-import com.compain.libraryshare.Util.AppCache;
+import com.compain.libraryshare.util.AppCache;
 
 import cn.bmob.v3.Bmob;
 
