@@ -3,8 +3,22 @@
     <string name="login_app">登录</string>
     <string name="login_username_hint">请输入用户名</string>
     <string name="login_password_hint">请输入登录密码</string>
-    <string name="qq_login">QQ登录</string>
-    <string name="wechat_login">微信登录</string>
+    <string name="qq_login">QQ</string>
+    <string name="wb_login">微博</string>
+    <string name="wechat_login">微信</string>
+    <string name="qq_share">QQ分享</string>
+    <string name="wb_share">微博分享</string>
+    <string name="wechat_share">微信分享</string>
     <string name="register_new_user">注册新账号</string>
     <string name="forget_password">忘记密码</string>
+    <string name="filter_pwd">0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="please_enter_username">请输入用户名</string>
+    <string name="please_enter_password">请输入密码</string>
+    <string name="password_fail">两个密码不一致,请检查</string>
+    <string name="password_ensure_hint">请再次输入密码</string>
+    <string name="signup">注册</string>
+    <string name="please_install_wechat">请安装微信客户端</string>
+    <string name="please_install_qq">请安装QQ客户端</string>
+    <string name="please_install_wb">请安装微博客户端</string>
+    <string name="social_login">社会账号快速登录</string>
 </resources>
