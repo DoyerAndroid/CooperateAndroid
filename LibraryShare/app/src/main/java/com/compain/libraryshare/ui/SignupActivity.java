@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
 public class SignupActivity extends Activity {
@@ -72,37 +72,37 @@ public class SignupActivity extends Activity {
             ToastUtils.show(SignupActivity.this, R.string.password_fail);
             return;
         }
-        List<UserBean> userBeanList = userbeanDao.queryBuilder().where(UserBeanDao.Properties.Username.eq(username)).list();
-        if (userBeanList.size() > 0) {
-            String bombid = userBeanList.get(0).getBombId();
-            BmobQuery<UserBean> bmobQuery = new BmobQuery<UserBean>();
-            bmobQuery.getObject(bombid, new QueryListener<UserBean>() {
-                @Override
-                public void done(UserBean object, BmobException e) {
-                    if (e == null && object.getUsername().equals(username)) {
-                        ToastUtils.show(SignupActivity.this, "用户名已经注册！");
-                    }
-                }
-            });
+        BmobQuery<UserBean> query = new BmobQuery<UserBean>();
+        //查询username叫username的数据
+        query.addWhereEqualTo("username", username);
+        //返回50条数据，如果不加上这条语句，默认返回10条数据
+        query.setLimit(10);
+        //执行查询方法
+        query.findObjects(new FindListener<UserBean>() {
+            @Override
+            public void done(List<UserBean> object, BmobException e) {
+                if (e == null && object.size() > 0) {
+                    ToastUtils.show(SignupActivity.this, "用户名已经注册！");
+                } else if (object.size() == 0) {
+                    final UserBean userBean = new UserBean();
+                    userBean.setUsername(username);
+                    userBean.setPassword(password);
+                    userBean.save(new SaveListener<String>() {
+                        @Override
+                        public void done(String objectId, BmobException e) {
+                            if (e == null) {
+                                userBean.setBombId(objectId);
+                                userbeanDao.insertOrReplace(userBean);
+                                ToastUtils.show(SignupActivity.this, "恭喜您，注册成功！");
+                                finish();
 
-        } else {
-            final UserBean userBean = new UserBean();
-            userBean.setUsername(username);
-            userBean.setPassword(password);
-            userBean.save(new SaveListener<String>() {
-                @Override
-                public void done(String objectId, BmobException e) {
-                    if (e == null) {
-                        userBean.setBombId(objectId);
-                        userbeanDao.insertOrReplace(userBean);
-                        ToastUtils.show(SignupActivity.this, "恭喜您，注册成功！");
-                        finish();
-
-                    } else {
-                        ToastUtils.show(SignupActivity.this, "创建数据失败：" + e.getMessage());
-                    }
+                            } else {
+                                ToastUtils.show(SignupActivity.this, "注册失败 " + e.getMessage());
+                            }
+                        }
+                    });
                 }
-            });
-        }
+            }
+        });
     }
 }

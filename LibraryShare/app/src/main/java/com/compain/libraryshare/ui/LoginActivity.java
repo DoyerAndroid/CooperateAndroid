@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.compain.libraryshare.LibraryApplication;
 import com.compain.libraryshare.R;
 import com.compain.libraryshare.gen.DaoSession;
-import com.compain.libraryshare.gen.UserBeanDao;
 import com.compain.libraryshare.model.UserBean;
 import com.compain.libraryshare.util.ToastUtils;
 import com.compain.libraryshare.widget.DrawableCenterTextView;
@@ -30,7 +29,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.exception.BmobException;
-import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.FindListener;
 
 /**
  * Created by jie.du on 17/1/10.
@@ -82,7 +81,7 @@ public class LoginActivity extends Activity {
 
     }
 
-    @OnClick({R.id.login_btn, R.id.forget_password, R.id.wechat_login, R.id.qq_login, R.id.register_new_user,R.id.wb_login})
+    @OnClick({R.id.login_btn, R.id.forget_password, R.id.wechat_login, R.id.qq_login, R.id.register_new_user, R.id.wb_login})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_btn:
@@ -129,25 +128,29 @@ public class LoginActivity extends Activity {
             ToastUtils.show(LoginActivity.this, R.string.please_enter_password);
             return;
         }
-        List<UserBean> userBeanList = userbeanDao.queryBuilder().where(UserBeanDao.Properties.Username.eq(username)).list();
-        if (userBeanList.size() > 0) {
-            String bombid = userBeanList.get(0).getBombId();
-            BmobQuery<UserBean> bmobQuery = new BmobQuery<UserBean>();
-            bmobQuery.getObject(bombid, new QueryListener<UserBean>() {
-                @Override
-                public void done(UserBean object, BmobException e) {
-                    if (e == null && object.getUsername().equals(username)) {
-                        ToastUtils.show(LoginActivity.this, "登录成功！");
-                        startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    } else {
-                        ToastUtils.show(LoginActivity.this, "登录失败" + e);
+        BmobQuery<UserBean> query = new BmobQuery<UserBean>();
+        //查询username叫username的数据
+        query.addWhereEqualTo("username", username);
+        //返回50条数据，如果不加上这条语句，默认返回10条数据
+        query.setLimit(10);
+        //执行查询方法
+        query.findObjects(new FindListener<UserBean>() {
+            @Override
+            public void done(List<UserBean> object, BmobException e) {
+                if (e == null && object.size() > 0) {
+                    for (UserBean userBean : object) {
+                        if (userBean.getPassword().equals(password)) {
+                            ToastUtils.show(LoginActivity.this, "登录成功！");
+                            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                        }
                     }
+                } else if (object.size() == 0) {
+                    ToastUtils.show(LoginActivity.this, "用户名不存在");
+                } else if (e != null) {
+                    ToastUtils.show(LoginActivity.this, "错误 " + e.getCause());
                 }
-            });
-        } else {
-            ToastUtils.show(LoginActivity.this, "该用户未注册！");
-        }
-
+            }
+        });
 
     }
 
