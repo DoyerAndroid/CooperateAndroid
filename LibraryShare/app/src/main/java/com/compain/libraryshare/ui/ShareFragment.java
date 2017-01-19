@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.compain.libraryshare.R;
 
@@ -25,8 +24,6 @@ public class ShareFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView tv = (TextView) getActivity().findViewById(R.id.tv);
-        tv.setText(getArguments().getString("ARGS"));
     }
 
     public static ShareFragment newInstance(String content) {

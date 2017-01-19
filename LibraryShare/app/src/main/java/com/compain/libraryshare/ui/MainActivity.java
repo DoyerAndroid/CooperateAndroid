@@ -27,9 +27,9 @@ public class MainActivity extends FragmentActivity implements BottomNavigationBa
                 );
 
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_home_white_24dp, "Home"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_book_white_24dp, "Books"))
-                .addItem(new BottomNavigationItem(R.drawable.ic_music_note_white_24dp, "Share"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_person, "Person"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_book, "Books"))
+                .addItem(new BottomNavigationItem(R.drawable.ic_share, "Share"))
                 .initialise();
         fragments = getFragments();
         setDefaultFragment();

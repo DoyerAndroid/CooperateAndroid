@@ -142,6 +142,7 @@ public class LoginActivity extends Activity {
                         if (userBean.getPassword().equals(password)) {
                             ToastUtils.show(LoginActivity.this, "登录成功！");
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            finish();
                         }
                     }
                 } else if (object.size() == 0) {
