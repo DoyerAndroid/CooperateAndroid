@@ -22,6 +22,7 @@ public class UserBean extends BmobObject {
 
     @Id
     private Long id;
+
     public String getUsername() {
         return username;
     }
@@ -32,10 +33,10 @@ public class UserBean extends BmobObject {
 
     private String username;
     private String password;
-    private String phone;
-    private String bombId;
-    private String wechatId;
-    private String qqId;
+    private String phone = "";
+    private String bombId = "";
+    private String wechatId = "";
+    private String qqId = "";
 
     public String getWechatId() {
         return wechatId;
@@ -61,10 +62,11 @@ public class UserBean extends BmobObject {
         this.address = address;
     }
 
-    private String address;
+    private String address = "";
+
     @Generated(hash = 1760743181)
     public UserBean(Long id, String username, String password, String phone,
-            String bombId, String wechatId, String qqId, String address) {
+                    String bombId, String wechatId, String qqId, String address) {
         this.id = id;
         this.username = username;
         this.password = password;

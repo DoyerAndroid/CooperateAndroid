@@ -73,10 +73,7 @@
     <!--支付页面-->
     <color name="pay_close_status">#FF7043</color>
     <color name="pay_light_gray">#F7F7F7</color>
-
-
     <color name="task_image_border_color">#5677FC</color>
-
     <color name="black_overlay">#66000000</color>
 
 </resources>

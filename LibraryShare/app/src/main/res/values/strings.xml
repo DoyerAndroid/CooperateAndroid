@@ -21,4 +21,9 @@
     <string name="please_install_qq">请安装QQ客户端</string>
     <string name="please_install_wb">请安装微博客户端</string>
     <string name="social_login">社会账号快速登录</string>
+    <string name="old_userpwd_hint">请输入旧密码</string>
+    <string name="new_userpwd_hint">请输入新密码</string>
+    <string name="new_userpwd_ensure_hint">请确认新密码</string>
+    <string name="modify_finish">完成</string>
+    <string name="library_upload">提交</string>
 </resources>

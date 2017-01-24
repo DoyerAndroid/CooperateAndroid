@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+    <include layout="@layout/content_title_bar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingRight="20dp"
+        android:layout_marginTop="30dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"        >
+
+        <ImageView
+            android:id="@+id/iv_bookCover"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:background="@color/blue"
+           />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingTop="20dp"
+        android:paddingBottom="10dp"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_bookName"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="十万个为什么"
+            android:gravity="center"
+            android:textColor="@color/code_text_color"
+            android:textSize="18sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/gray"/>
+        <TextView
+            android:id="@+id/tv_bookAuthor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="作者：萝卜"
+            android:gravity="right"
+            android:textColor="@color/code_text_color"
+            android:textSize="16sp"
+            android:layout_marginRight="20dp"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/gray"/>
+        <TextView
+            android:id="@+id/tv_bookIntroduce"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="十万个为什么,好多个为什么"
+            android:textColor="@color/code_text_color"
+            android:textSize="18sp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"/>
+    </LinearLayout>
+</LinearLayout>

@@ -11,8 +11,11 @@ import android.widget.TextView;
 
 import com.compain.libraryshare.LibraryApplication;
 import com.compain.libraryshare.R;
+import com.compain.libraryshare.biz.DataAccessListener;
+import com.compain.libraryshare.biz.UserBiz;
 import com.compain.libraryshare.gen.DaoSession;
 import com.compain.libraryshare.model.UserBean;
+import com.compain.libraryshare.util.AppCache;
 import com.compain.libraryshare.util.ToastUtils;
 import com.compain.libraryshare.widget.DrawableCenterTextView;
 import com.umeng.socialize.UMAuthListener;
@@ -53,10 +56,31 @@ public class LoginActivity extends Activity {
     DrawableCenterTextView wbLogin;
     private AbstractDao userbeanDao;
     private UMShareAPI umShareAPI;
+    private UserBiz userBiz = new UserBiz();
+    private UserBean userBean = new UserBean();
     private UMAuthListener umAuthListener = new UMAuthListener() {
         @Override
         public void onComplete(SHARE_MEDIA platform, int action, Map<String, String> data) {
-            ToastUtils.show(getApplicationContext(), "Authorize succeed");
+            if (platform.equals(SHARE_MEDIA.QQ)) {
+                String qq_openid = data.get("openid");
+                if (qq_openid != null && !qq_openid.isEmpty()) {
+                    AppCache.putQqId(qq_openid);
+                    userBiz.loginByQq(new DataAccessListener<UserBean>() {
+                        @Override
+                        public void onGetData(UserBean data, Throwable error) {
+                            if (data != null) {
+                                ToastUtils.show(getApplicationContext(), "QQ登录成功");
+                                startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                            }
+                        }
+                    }, qq_openid);
+                }
+
+            } else if (platform.equals(SHARE_MEDIA.WEIXIN)) {
+
+            } else if (platform.equals(SHARE_MEDIA.SINA)) {
+
+            }
 
         }
 
@@ -78,6 +102,15 @@ public class LoginActivity extends Activity {
         ButterKnife.bind(this);
         umShareAPI = UMShareAPI.get(this);
         initDao();
+        if (!AppCache.getUserId("").isEmpty()) {
+            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+        }
+        userBiz.fetchUser(new DataAccessListener<UserBean>() {
+            @Override
+            public void onGetData(UserBean data, Throwable error) {
+                userBean = data;
+            }
+        });
 
     }
 
@@ -141,11 +174,22 @@ public class LoginActivity extends Activity {
                     for (UserBean userBean : object) {
                         if (userBean.getPassword().equals(password)) {
                             ToastUtils.show(LoginActivity.this, "登录成功！");
+                            AppCache.putUserId(userBean.getObjectId());
+                            String qq_id = AppCache.getQqId("");
+                            if (userBean.getQqId().equals("") && !qq_id.equals("")) {
+                                userBean.setQqId(qq_id);
+                                userBiz.updateUser(new DataAccessListener<String>() {
+                                    @Override
+                                    public void onGetData(String data, Throwable error) {
+
+                                    }
+                                }, userBean);
+                            }
                             startActivity(new Intent(LoginActivity.this, MainActivity.class));
                             finish();
                         }
                     }
-                } else if (object.size() == 0) {
+                } else if (e == null && object.size() == 0) {
                     ToastUtils.show(LoginActivity.this, "用户名不存在");
                 } else if (e != null) {
                     ToastUtils.show(LoginActivity.this, "错误 " + e.getCause());

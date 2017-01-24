@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="types">
+        <item>文学</item>
+        <item>艺术 </item>
+        <item>科技</item>
+    </string-array>
+    <string-array name="ages">
+        <item>全部</item>
+        <item>3岁以下</item>
+        <item>4～6岁</item>
+        <item>7～13岁</item>
+        <item>13岁以上</item>
+    </string-array>
+</resources>

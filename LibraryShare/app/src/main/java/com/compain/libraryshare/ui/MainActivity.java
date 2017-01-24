@@ -38,7 +38,7 @@ public class MainActivity extends FragmentActivity implements BottomNavigationBa
 
     private ArrayList<Fragment> getFragments() {
         ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(HomeFragment.newInstance("Home"));
+        fragments.add(PersonFragment.newInstance("Person"));
         fragments.add(BookFragment.newInstance("Books"));
         fragments.add(ShareFragment.newInstance("Share"));
         return fragments;
@@ -50,7 +50,7 @@ public class MainActivity extends FragmentActivity implements BottomNavigationBa
     private void setDefaultFragment() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.layFrame, HomeFragment.newInstance("Home"));
+        transaction.replace(R.id.layFrame, PersonFragment.newInstance("Person"));
         transaction.commit();
     }
 

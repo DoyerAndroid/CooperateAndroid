@@ -54,6 +54,16 @@
             android:name=".ui.SetActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".ui.ModifyPwdActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Toolbar" />
+        <activity
+            android:name=".ui.BookDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@style/AppTheme.Toolbar"></activity>
+        <activity
             android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"

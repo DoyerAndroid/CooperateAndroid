@@ -4,17 +4,48 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     android:orientation="vertical">
-    <include layout="@layout/content_title_bar"/>
+
+    <include layout="@layout/content_title_bar" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:paddingRight="20dp"
-        android:layout_marginTop="30dp"
-        android:paddingTop="10dp"
+        android:orientation="horizontal"
         android:paddingBottom="10dp"
-        android:paddingLeft="20dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="住址"
+            android:textColor="@color/code_text_color"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="50dp"
+            android:textColor="@color/code_text_color"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
         <TextView
             android:id="@+id/tv_modifyPass"
             android:layout_width="match_parent"
@@ -27,19 +58,20 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
         android:background="@color/white"
         android:gravity="center_vertical"
-        android:paddingRight="20dp"
-        android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:layout_marginTop="30dp"
-        android:paddingLeft="20dp">
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp">
+
         <TextView
             android:id="@+id/tv_exitLogin"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="退出登录"
             android:gravity="center"
+            android:text="退出登录"
             android:textColor="@color/code_text_color"
             android:textSize="18sp" />
     </LinearLayout>
