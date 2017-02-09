@@ -1,6 +1,6 @@
 package com.compain.libraryshare;
 
-import android.app.Application;
+import android.support.multidex.MultiDexApplication;
 
 import com.compain.libraryshare.gen.DaoMaster;
 import com.compain.libraryshare.gen.DaoSession;
@@ -16,7 +16,7 @@ import cn.bmob.v3.Bmob;
 /**
  * Created by jie.du on 17/1/9.
  */
-public class LibraryApplication extends Application {
+public class LibraryApplication extends MultiDexApplication {
     private static LibraryApplication APPLICATION;
     private static DaoSession daoSession;
 
